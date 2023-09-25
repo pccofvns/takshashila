@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from pathlib import Path
 import src.scripts.open_api_enhancer as open_api_enhancer
-DB_PROPERTIES = Path(__file__).parent.parent / 'database/flyway.conf'
+DB_PROPERTIES = Path(__file__).parent.parent / 'database/db-dev.properties'
 
 
 def init():
