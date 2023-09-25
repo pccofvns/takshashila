@@ -23,7 +23,7 @@ public class RolePermissionXRecord extends TableRecordImpl<RolePermissionXRecord
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>ts_qa.role_permission_x.role_id</code>.
+     * Setter for <code>ts.role_permission_x.role_id</code>.
      */
     public RolePermissionXRecord setRoleId(Long value) {
         set(0, value);
@@ -31,7 +31,7 @@ public class RolePermissionXRecord extends TableRecordImpl<RolePermissionXRecord
     }
 
     /**
-     * Getter for <code>ts_qa.role_permission_x.role_id</code>.
+     * Getter for <code>ts.role_permission_x.role_id</code>.
      */
     @NotNull
     public Long getRoleId() {
@@ -39,7 +39,7 @@ public class RolePermissionXRecord extends TableRecordImpl<RolePermissionXRecord
     }
 
     /**
-     * Setter for <code>ts_qa.role_permission_x.permission_id</code>.
+     * Setter for <code>ts.role_permission_x.permission_id</code>.
      */
     public RolePermissionXRecord setPermissionId(Long value) {
         set(1, value);
@@ -47,7 +47,7 @@ public class RolePermissionXRecord extends TableRecordImpl<RolePermissionXRecord
     }
 
     /**
-     * Getter for <code>ts_qa.role_permission_x.permission_id</code>.
+     * Getter for <code>ts.role_permission_x.permission_id</code>.
      */
     @NotNull
     public Long getPermissionId() {

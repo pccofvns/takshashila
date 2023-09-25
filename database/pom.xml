@@ -74,8 +74,9 @@
                                         <containerImage>mariadb:10.10</containerImage>
                                         <username>${db.user}</username>
                                         <password>${db.password}</password>
-                                        <databaseName>ts_${ts.resource.filter}</databaseName>
+                                        <databaseName>${db.schemas}</databaseName>
                                     </database>
+                                    <flyway/>
                                     <jooq>
                                         <generator>
                                             <generate>
@@ -89,7 +90,7 @@
                                             <database>
                                                 <includes>.*</includes>
                                                 <excludes>flyway_schema_history</excludes>
-                                                <inputSchema>ts_${ts.resource.filter}</inputSchema>
+                                                <inputSchema>${db.schemas}</inputSchema>
                                             </database>
                                             <target>
                                                 <packageName>com.pccofvns.ts.domain</packageName>
@@ -272,57 +273,6 @@
                             </dependency>
                         </dependencies>
                     </plugin>
-<!--                    <plugin>-->
-<!--                        <groupId>org.jooq</groupId>-->
-<!--                        <artifactId>jooq-codegen-maven</artifactId>-->
-<!--                        <version>${jooq.version}</version>-->
-<!--                        <executions>-->
-<!--                            <execution>-->
-<!--                                <phase>generate-sources</phase>-->
-<!--                                <goals>-->
-<!--                                    <goal>generate</goal>-->
-<!--                                </goals>-->
-<!--                                <configuration>-->
-<!--                                    <jdbc>-->
-<!--                                        <driver>org.mariadb.jdbc.Driver</driver>-->
-<!--                                        <url>${db.url}</url>-->
-<!--                                        <user>${db.user}</user>-->
-<!--                                        <password>${db.password}</password>-->
-<!--                                    </jdbc>-->
-<!--                                    <generator>-->
-<!--                                        <generate>-->
-<!--                                            <pojos>true</pojos>-->
-<!--                                            <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>-->
-<!--                                            <javaTimeTypes>true</javaTimeTypes>-->
-<!--                                            <fluentSetters>true</fluentSetters>-->
-<!--                                            <validationAnnotations>true</validationAnnotations>-->
-<!--                                            <pojosAsJavaRecordClasses>true</pojosAsJavaRecordClasses>-->
-<!--                                        </generate>-->
-<!--                                        <database>-->
-<!--                                            <inputSchema>${db.schemas}</inputSchema>-->
-<!--                                            <excludes>-->
-<!--                                                FLYWAY_SCHEMA_HISTORY                # This table (unqualified name) should not be generated-->
-<!--                                                | PREFIX_.*                   # Objects with a given prefix should not be generated-->
-<!--                                                | SECRET_SCHEMA\.SECRET_TABLE # This table (qualified name) should not be generated-->
-<!--                                                | SECRET_ROUTINE              # This routine (unqualified name) ...-->
-<!--                                            </excludes>-->
-<!--                                        </database>-->
-<!--                                        <target>-->
-<!--                                            <packageName>com.pccofvns.ts.domain</packageName>-->
-<!--                                            <directory>${project.basedir}/../modules/domain/src/main/java</directory>-->
-<!--                                        </target>-->
-<!--                                    </generator>-->
-<!--                                </configuration>-->
-<!--                            </execution>-->
-<!--                        </executions>-->
-<!--                        <dependencies>-->
-<!--                            <dependency>-->
-<!--                                <groupId>org.mariadb.jdbc</groupId>-->
-<!--                                <artifactId>mariadb-java-client</artifactId>-->
-<!--                                <version>${mariadb.version}</version>-->
-<!--                            </dependency>-->
-<!--                        </dependencies>-->
-<!--                    </plugin>-->
                 </plugins>
             </build>
         </profile>

@@ -25,7 +25,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>ts_qa.user.id</code>.
+     * Setter for <code>ts.user.id</code>.
      */
     public UserRecord setId(Long value) {
         set(0, value);
@@ -33,14 +33,14 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.id</code>.
+     * Getter for <code>ts.user.id</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>ts_qa.user.username</code>.
+     * Setter for <code>ts.user.username</code>.
      */
     public UserRecord setUsername(String value) {
         set(1, value);
@@ -48,7 +48,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.username</code>.
+     * Getter for <code>ts.user.username</code>.
      */
     @NotNull
     @Size(max = 255)
@@ -57,7 +57,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>ts_qa.user.password</code>.
+     * Setter for <code>ts.user.password</code>.
      */
     public UserRecord setPassword(String value) {
         set(2, value);
@@ -65,7 +65,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.password</code>.
+     * Getter for <code>ts.user.password</code>.
      */
     @Size(max = 255)
     public String getPassword() {
@@ -73,7 +73,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>ts_qa.user.credentials_non_expired</code>.
+     * Setter for <code>ts.user.credentials_non_expired</code>.
      */
     public UserRecord setCredentialsNonExpired(Boolean value) {
         set(3, value);
@@ -81,7 +81,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.credentials_non_expired</code>.
+     * Getter for <code>ts.user.credentials_non_expired</code>.
      */
     @NotNull
     public Boolean getCredentialsNonExpired() {
@@ -89,7 +89,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>ts_qa.user.non_expired</code>.
+     * Setter for <code>ts.user.non_expired</code>.
      */
     public UserRecord setNonExpired(Boolean value) {
         set(4, value);
@@ -97,7 +97,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.non_expired</code>.
+     * Getter for <code>ts.user.non_expired</code>.
      */
     @NotNull
     public Boolean getNonExpired() {
@@ -105,7 +105,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>ts_qa.user.non_locked</code>.
+     * Setter for <code>ts.user.non_locked</code>.
      */
     public UserRecord setNonLocked(Boolean value) {
         set(5, value);
@@ -113,7 +113,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.non_locked</code>.
+     * Getter for <code>ts.user.non_locked</code>.
      */
     @NotNull
     public Boolean getNonLocked() {
@@ -121,7 +121,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>ts_qa.user.enabled</code>.
+     * Setter for <code>ts.user.enabled</code>.
      */
     public UserRecord setEnabled(Boolean value) {
         set(6, value);
@@ -129,7 +129,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.user.enabled</code>.
+     * Getter for <code>ts.user.enabled</code>.
      */
     @NotNull
     public Boolean getEnabled() {

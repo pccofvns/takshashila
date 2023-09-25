@@ -25,7 +25,7 @@ public class RoleRecord extends UpdatableRecordImpl<RoleRecord> implements Recor
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>ts_qa.role.id</code>.
+     * Setter for <code>ts.role.id</code>.
      */
     public RoleRecord setId(Long value) {
         set(0, value);
@@ -33,14 +33,14 @@ public class RoleRecord extends UpdatableRecordImpl<RoleRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.role.id</code>.
+     * Getter for <code>ts.role.id</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>ts_qa.role.name</code>.
+     * Setter for <code>ts.role.name</code>.
      */
     public RoleRecord setName(String value) {
         set(1, value);
@@ -48,7 +48,7 @@ public class RoleRecord extends UpdatableRecordImpl<RoleRecord> implements Recor
     }
 
     /**
-     * Getter for <code>ts_qa.role.name</code>.
+     * Getter for <code>ts.role.name</code>.
      */
     @NotNull
     @Size(max = 255)

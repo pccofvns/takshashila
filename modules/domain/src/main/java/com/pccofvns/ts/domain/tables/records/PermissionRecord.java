@@ -25,7 +25,7 @@ public class PermissionRecord extends UpdatableRecordImpl<PermissionRecord> impl
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>ts_qa.permission.id</code>.
+     * Setter for <code>ts.permission.id</code>.
      */
     public PermissionRecord setId(Long value) {
         set(0, value);
@@ -33,14 +33,14 @@ public class PermissionRecord extends UpdatableRecordImpl<PermissionRecord> impl
     }
 
     /**
-     * Getter for <code>ts_qa.permission.id</code>.
+     * Getter for <code>ts.permission.id</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>ts_qa.permission.name</code>.
+     * Setter for <code>ts.permission.name</code>.
      */
     public PermissionRecord setName(String value) {
         set(1, value);
@@ -48,7 +48,7 @@ public class PermissionRecord extends UpdatableRecordImpl<PermissionRecord> impl
     }
 
     /**
-     * Getter for <code>ts_qa.permission.name</code>.
+     * Getter for <code>ts.permission.name</code>.
      */
     @NotNull
     @Size(max = 255)

@@ -12,33 +12,33 @@ import com.pccofvns.ts.domain.tables.UserRoleX;
 
 
 /**
- * Convenience access to all tables in ts_qa.
+ * Convenience access to all tables in ts.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
 
     /**
-     * The table <code>ts_qa.permission</code>.
+     * The table <code>ts.permission</code>.
      */
     public static final Permission PERMISSION = Permission.PERMISSION;
 
     /**
-     * The table <code>ts_qa.role</code>.
+     * The table <code>ts.role</code>.
      */
     public static final Role ROLE = Role.ROLE;
 
     /**
-     * The table <code>ts_qa.role_permission_x</code>.
+     * The table <code>ts.role_permission_x</code>.
      */
     public static final RolePermissionX ROLE_PERMISSION_X = RolePermissionX.ROLE_PERMISSION_X;
 
     /**
-     * The table <code>ts_qa.user</code>.
+     * The table <code>ts.user</code>.
      */
     public static final User USER = User.USER;
 
     /**
-     * The table <code>ts_qa.user_role_x</code>.
+     * The table <code>ts.user_role_x</code>.
      */
     public static final UserRoleX USER_ROLE_X = UserRoleX.USER_ROLE_X;
 }

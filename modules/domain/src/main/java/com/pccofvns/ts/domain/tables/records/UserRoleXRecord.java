@@ -23,7 +23,7 @@ public class UserRoleXRecord extends TableRecordImpl<UserRoleXRecord> implements
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>ts_qa.user_role_x.user_id</code>.
+     * Setter for <code>ts.user_role_x.user_id</code>.
      */
     public UserRoleXRecord setUserId(Long value) {
         set(0, value);
@@ -31,7 +31,7 @@ public class UserRoleXRecord extends TableRecordImpl<UserRoleXRecord> implements
     }
 
     /**
-     * Getter for <code>ts_qa.user_role_x.user_id</code>.
+     * Getter for <code>ts.user_role_x.user_id</code>.
      */
     @NotNull
     public Long getUserId() {
@@ -39,7 +39,7 @@ public class UserRoleXRecord extends TableRecordImpl<UserRoleXRecord> implements
     }
 
     /**
-     * Setter for <code>ts_qa.user_role_x.role_id</code>.
+     * Setter for <code>ts.user_role_x.role_id</code>.
      */
     public UserRoleXRecord setRoleId(Long value) {
         set(1, value);
@@ -47,7 +47,7 @@ public class UserRoleXRecord extends TableRecordImpl<UserRoleXRecord> implements
     }
 
     /**
-     * Getter for <code>ts_qa.user_role_x.role_id</code>.
+     * Getter for <code>ts.user_role_x.role_id</code>.
      */
     @NotNull
     public Long getRoleId() {

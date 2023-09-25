@@ -5,7 +5,7 @@ package com.pccofvns.ts.domain.tables;
 
 
 import com.pccofvns.ts.domain.Keys;
-import com.pccofvns.ts.domain.TsQa;
+import com.pccofvns.ts.domain.Ts;
 import com.pccofvns.ts.domain.tables.records.RolePermissionXRecord;
 
 import java.util.Arrays;
@@ -38,7 +38,7 @@ public class RolePermissionX extends TableImpl<RolePermissionXRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>ts_qa.role_permission_x</code>
+     * The reference instance of <code>ts.role_permission_x</code>
      */
     public static final RolePermissionX ROLE_PERMISSION_X = new RolePermissionX();
 
@@ -51,12 +51,12 @@ public class RolePermissionX extends TableImpl<RolePermissionXRecord> {
     }
 
     /**
-     * The column <code>ts_qa.role_permission_x.role_id</code>.
+     * The column <code>ts.role_permission_x.role_id</code>.
      */
     public final TableField<RolePermissionXRecord, Long> ROLE_ID = createField(DSL.name("role_id"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>ts_qa.role_permission_x.permission_id</code>.
+     * The column <code>ts.role_permission_x.permission_id</code>.
      */
     public final TableField<RolePermissionXRecord, Long> PERMISSION_ID = createField(DSL.name("permission_id"), SQLDataType.BIGINT.nullable(false), this, "");
 
@@ -69,21 +69,21 @@ public class RolePermissionX extends TableImpl<RolePermissionXRecord> {
     }
 
     /**
-     * Create an aliased <code>ts_qa.role_permission_x</code> table reference
+     * Create an aliased <code>ts.role_permission_x</code> table reference
      */
     public RolePermissionX(String alias) {
         this(DSL.name(alias), ROLE_PERMISSION_X);
     }
 
     /**
-     * Create an aliased <code>ts_qa.role_permission_x</code> table reference
+     * Create an aliased <code>ts.role_permission_x</code> table reference
      */
     public RolePermissionX(Name alias) {
         this(alias, ROLE_PERMISSION_X);
     }
 
     /**
-     * Create a <code>ts_qa.role_permission_x</code> table reference
+     * Create a <code>ts.role_permission_x</code> table reference
      */
     public RolePermissionX() {
         this(DSL.name("role_permission_x"), null);
@@ -95,7 +95,7 @@ public class RolePermissionX extends TableImpl<RolePermissionXRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : TsQa.TS_QA;
+        return aliased() ? null : Ts.TS;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class RolePermissionX extends TableImpl<RolePermissionXRecord> {
     private transient Permission _permission;
 
     /**
-     * Get the implicit join path to the <code>ts_qa.role</code> table.
+     * Get the implicit join path to the <code>ts.role</code> table.
      */
     public Role role() {
         if (_role == null)
@@ -117,7 +117,7 @@ public class RolePermissionX extends TableImpl<RolePermissionXRecord> {
     }
 
     /**
-     * Get the implicit join path to the <code>ts_qa.permission</code> table.
+     * Get the implicit join path to the <code>ts.permission</code> table.
      */
     public Permission permission() {
         if (_permission == null)
