@@ -1,0 +1,14 @@
+PicklistResponse:
+  type: object
+  properties:
+    picklists:
+      type: array
+      items:
+        $ref: '#/Picklist'
+Picklist:
+  type: object
+  properties:
+    key:
+      type: string
+    value:
+      type: string

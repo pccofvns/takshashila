@@ -1,0 +1,38 @@
+picklist-key:
+  get:
+    tags:
+      - Public
+    summary: Picklist return by key
+    description: This service returns the map of key and values for particular picklist
+    operationId: getPicklistByKey
+    parameters:
+      - name: lang
+        in: header
+        description: Locale of the banner has to be rendered e.g. en or es
+        required: false
+        schema:
+          type: string
+          default: en
+        example: en
+      - name: picklist
+        in: path
+        description: Picklist name
+        required: true
+        schema:
+          type: string
+        example: citizenshipStatus
+    responses:
+      "200":
+        description: Returns the map of key and values for particular picklist
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/picklist.yml#/PicklistResponse"
+      "400":
+        $ref: "../components/responses.yml#/InvalidRequest"
+      "404":
+        $ref: "../components/responses.yml#/NotFound"
+      "401":
+        $ref: "../components/responses.yml#/Unauthorized"
+      "500":
+        $ref: "../components/responses.yml#/ServerError"

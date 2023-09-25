@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: "Takshashila Api"
+  termsOfService: https://www.takshashila.com/terms-of-use.html
+  contact:
+    name: Takshashila
+    email: admin@takshashila.com
+  version: 0.0.1-SNAPSHOT
+  license:
+    name: Takshashila, Inc.
+    url: https://www.takshashila.com/terms-of-use.html
+security:
+  - ApiKeyAuth: []
+externalDocs:
+  description: Takshashila API Documentation
+  url: https://pccofvns.github.io/
+servers:
+  - url: https://localhost:8080/api
+tags:
+  - name: Public
+    description: Public Apis
+  - name: User
+    description: User Apis
+paths:
+  ## Public
+  /v1/public/picklists/{picklist}:
+    $ref: "paths/picklists.yml#/picklist-key"
+  /v1/public/users/register:
+    $ref: "paths/users.yml#/register"
+  /v1/public/users/login:
+    $ref: "paths/users.yml#/login"
+  ## Users
+  /v1/users/current:
+    $ref: "paths/users.yml#/current"
+  /v1/users/logout:
+    $ref: "paths/users.yml#/logout"
+  /v1/users/{user-id}:
+    $ref: "paths/users.yml#/user-id"
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: authorization
+      in: header

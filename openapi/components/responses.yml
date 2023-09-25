@@ -1,0 +1,12 @@
+InvalidRequest:
+  description: Invalid request
+  content:
+    application/json:
+      schema:
+        $ref: "../schemas/base.yml#/ErrorResponse"
+NotFound:
+  description: Resource Not Found
+Unauthorized:
+  description: Unauthorized
+ServerError:
+  description: Server error

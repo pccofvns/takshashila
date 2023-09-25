@@ -1,0 +1,23 @@
+type Query {
+    # Picklist return by key
+    # This service returns the map of key and values for particular picklist
+    # @param String! picklist Picklist name
+    # @param String! lang Locale of the banner has to be rendered e.g. en or es
+    # @return [PicklistResponse]
+    getPicklistByKey(picklist: String!, lang: String!): PicklistResponse
+
+}
+
+type PicklistResponse {
+
+    picklists: [Picklist]
+
+}
+
+type Picklist {
+
+    key: String!
+
+    value: String!
+
+}

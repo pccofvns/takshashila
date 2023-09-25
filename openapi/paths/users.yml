@@ -1,0 +1,170 @@
+register:
+  post:
+    tags:
+      - Public
+    summary: Register user
+    description: This service returns token after login
+    operationId: register
+    parameters:
+      - name: username
+        in: query
+        description: Username
+        required: true
+        schema:
+          type: string
+        example: "pccofvns"
+      - name: password
+        in: query
+        description: Password
+        required: true
+        schema:
+          type: string
+        example: "P@ssw0rd"
+    responses:
+      "200":
+        description: Returns token
+        content:
+          application/json:
+            schema:
+              type: string
+      "400":
+        $ref: "../components/responses.yml#/InvalidRequest"
+      "404":
+        $ref: "../components/responses.yml#/NotFound"
+      "401":
+        $ref: "../components/responses.yml#/Unauthorized"
+      "500":
+        $ref: "../components/responses.yml#/ServerError"
+login:
+  post:
+    tags:
+      - Public
+    summary: Login user
+    description: This service returns token after login
+    operationId: login
+    parameters:
+      - name: username
+        in: query
+        description: Username
+        required: true
+        schema:
+          type: string
+        example: "pccofvns"
+      - name: password
+        in: query
+        description: Password
+        required: true
+        schema:
+          type: string
+        example: "P@ssw0rd"
+    responses:
+      "200":
+        description: Returns token
+        content:
+          application/json:
+            schema:
+              type: string
+      "400":
+        $ref: "../components/responses.yml#/InvalidRequest"
+      "404":
+        $ref: "../components/responses.yml#/NotFound"
+      "401":
+        $ref: "../components/responses.yml#/Unauthorized"
+      "500":
+        $ref: "../components/responses.yml#/ServerError"
+current:
+  get:
+    tags:
+      - User
+    summary: Get logged in user
+    description: This service returns user details by id
+    operationId: currentUser
+    parameters:
+      - name: user
+        in: header
+        description: User Authentication Principal
+        required: true
+        schema: {}
+    responses:
+      "200":
+        description: Current user
+        content:
+          application/json:
+            schema: {}
+      "400":
+        $ref: "../components/responses.yml#/InvalidRequest"
+      "404":
+        $ref: "../components/responses.yml#/NotFound"
+      "401":
+        $ref: "../components/responses.yml#/Unauthorized"
+      "500":
+        $ref: "../components/responses.yml#/ServerError"
+logout:
+  get:
+    tags:
+      - User
+    summary: Logout in user
+    description: Logs out user
+    operationId: logout
+    parameters:
+      - name: user
+        in: header
+        description: User Authentication Principal
+        required: true
+        schema: {}
+    responses:
+      "200":
+        description: Whether user has successfully logged out
+        content:
+          application/json:
+            schema:
+              type: boolean
+              example: true
+              description: Is user logged out
+      "400":
+        $ref: "../components/responses.yml#/InvalidRequest"
+      "404":
+        $ref: "../components/responses.yml#/NotFound"
+      "401":
+        $ref: "../components/responses.yml#/Unauthorized"
+      "500":
+        $ref: "../components/responses.yml#/ServerError"
+user-id:
+  get:
+    tags:
+      - User
+    summary: Get user by id
+    description: This service returns user details by id
+    operationId: getUserById
+    parameters:
+      - name: lang
+        in: header
+        description: Locale of the banner has to be rendered e.g. en or es
+        required: false
+        schema:
+          type: string
+          default: en
+        example: en
+      - name: user-id
+        in: path
+        description: User Id
+        required: true
+        schema:
+          type: integer
+          format: int64
+        example: "1234"
+    responses:
+      "200":
+        description: Returns the map of key and values for particular picklist
+        content:
+          application/json:
+            schema:
+              $ref: "../schemas/user.yml#/UserResponse"
+      "400":
+        $ref: "../components/responses.yml#/InvalidRequest"
+      "404":
+        $ref: "../components/responses.yml#/NotFound"
+      "401":
+        $ref: "../components/responses.yml#/Unauthorized"
+      "500":
+        $ref: "../components/responses.yml#/ServerError"

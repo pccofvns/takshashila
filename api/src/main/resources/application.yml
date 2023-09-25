@@ -1,0 +1,62 @@
+info:
+  app:
+    build-number: '^branch^-^buildNumber^'
+    description: Takshashila Api
+    name: Takshashila Api
+    version: '^project.version^'
+debug: true
+spring:
+  profiles:
+    active: dev
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      exclude: 'public/**, static/**, templates/**'
+server:
+  port : 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+springdoc:
+  apiDocs:
+    path: '/docs'
+  swaggerUi:
+    path: '/docs/ui/swagger-ui.html'
+
+---
+spring:
+  config:
+    import: classpath:META-INF/build-info.properties
+  mvc:
+    logRequestDetails: true
+  datasource:
+    name: takshashila
+    driverClassName: org.mariadb.jdbc.Driver
+    url: '^ts.rdbms.datasource.url^'
+    username: '^ts.rdbms.datasource.username^'
+    password: '^ts.rdbms.datasource.password^'
+  jooq:
+    sql-dialect: mariadb
+  jpa:
+    generate-ddl: false
+    show-sql: true
+  output:
+    ansi:
+      enabled: DETECT
+  sql:
+    init:
+      platform: mariadb
+  graphql:
+    graphiql:
+      enabled: true
+jwt:
+  issuer: takshashila
+  expiration-sec: 86400
+  clock-skew-sec: 300
+  secret: Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=
+logging:
+  level:
+    root: debug

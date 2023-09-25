@@ -1,0 +1,16 @@
+= Takshashila
+Prashant C Chaturvedi <pccfrmvns@gmail.com>
+v0.0.1
+
+:description: 'Documentation and manual of Takshashila application.'
+:imagesdir: ../../../modules/ROOT/assets/images
+:pagesdir: ../../../modules/ROOT/pages
+:includesdir: ../../../modules/ROOT/pages/_partials
+:themedir: ../../../src/theme
+
+toc::[]
+
+include::{themedir}/_copyright.adoc[]
+
+include::{includesdir}/_rev_history.adoc[]
+

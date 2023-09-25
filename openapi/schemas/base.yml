@@ -1,0 +1,169 @@
+Name:
+  required:
+    - first
+    - last
+  type: object
+  properties:
+    first:
+      $ref: "#/FirstName"
+    middle:
+      $ref: "#/MiddleName"
+    last:
+      $ref: "#/LastName"
+Contact:
+  required:
+    - name
+    - email
+  type: object
+  properties:
+    name:
+      $ref: "#/Name"
+      description: Indicates Name of an individual
+    phone:
+      $ref: "#/Phone"
+    email:
+      type: string
+      description: Indicates Email address of the individual
+      format: email
+      example: api@ts.com
+    spokenLang:
+      type: string
+      x-field-extra-annotation: '@com.pccofvns.ts.domain.validation.PicklistConstraint(name = "spokenLanguage")'
+      description: Indicates preferred spoken language of the user
+      example: ENGLISH
+    writtenLang:
+      type: string
+      x-field-extra-annotation: '@com.pccofvns.ts.domain.validation.PicklistConstraint(name = "writtenLanguage")'
+      description: Indicates preferred written language of the user
+      example: HINDI
+Phone:
+  type: object
+  description: Indicates Phone Number
+  properties:
+    phone:
+      type: string
+      pattern: "^[0-9]{10}$"
+      description: Indicates 10 digit Phone number
+      example: "9313123123"
+    type:
+      $ref: "#/PhoneType"
+    extension:
+      maxLength: 4
+      minLength: 0
+      pattern: "^[0-9]{1,4}$"
+      type: string
+      description: Indicates 0 to 4 digit extension for phone number
+      example: "002"
+PhoneType:
+  type: string
+  description: "Phone Type, possible values : CELL|HOME|WORK "
+  enum:
+    - CELL
+    - WORK
+    - HOME
+  example: CELL
+ErrorResponse:
+  type: object
+  description: Validation Error Response
+  properties:
+    type:
+      type: string
+      description: A URL to a page with more details regarding the problem.
+      format: uri
+      example: "https://example.com/probs/cant-view-account-details"
+    title:
+      type: string
+      description: A message to the client from server with respect to this error
+      example: "Invalid Request"
+    status:
+      type: integer
+      format: int32
+      description: Indicates error status code
+      example: "400"
+    instance:
+      type: string
+      format: uri
+      description: The URL that was used for operations on the resource
+      example: "https://takshashila.com/v1/users/1234"
+    timestamp:
+      type: string
+      format: date-time
+      description: Indicates timestamp of server
+      example: "2023-01-01 XX"
+    errors:
+      type: array
+      description: Indicates validation Errors
+      items:
+        $ref: "#/ErrorMessage"
+ErrorMessage:
+  type: object
+  description: Validation Error
+  properties:
+    field:
+      type: string
+      description: Field name
+      example: Name.firstName
+    errorCode:
+      type: string
+      description: The error code specific to the field
+      example: Validate.Name.firstName
+    defaultMessage:
+      type: string
+      description: The default message text corresponding to error code
+      example: First name is not valid
+    argsMap:
+      description: The name and value pairs of arguments of sn error message.
+      type: object
+      additionalProperties:
+        type: string
+        description: The value of the arguments identified by the key
+      example: { "0": "Neo" }
+FirstName:
+  description: Indicates First Name of an individual
+  type: string
+  maxLength: 50
+  minLength: 1
+  pattern: "^[a-zA-Z][a-zA-Z-']*( [a-zA-Z-']+)*$"
+  x-pattern-message: "Please enter valid First Name"
+  x-required-groups: javax.validation.groups.Default.class
+  x-pattern-groups: javax.validation.groups.Default.class
+  example: Peter
+MiddleName:
+  description: Indicates Middle Name of an individual
+  type: string
+  maxLength: 50
+  minLength: 0
+  pattern: "^[a-zA-Z][a-zA-Z-']*( [a-zA-Z-']+)*$"
+  x-pattern-message: "Please enter valid Middle Name"
+  example: K
+LastName:
+  description: Indicates Last Name of an individual
+  type: string
+  maxLength: 50
+  minLength: 1
+  pattern: "^[a-zA-Z][a-zA-Z-']*( [a-zA-Z-']+)*$"
+  x-pattern-message: "Please enter valid Last Name"
+  example: Parker
+DateOfBirth:
+  type: string
+  description: Indicates date of birth of an individual
+  format: date
+Text:
+  type: object
+  description: Any text, or message code that is needed from server side and can be made dynamic with args
+  properties:
+    code:
+      type: string
+      description: The code for the text
+      example: "label.name.HSN.WRAP.arg.2A"
+    defaultMessage:
+      type: string
+      description: The default message text corresponding to error code
+      example: First name is not valid
+    argsMap:
+      description: The name and value pairs of arguments that may be needed for the text template
+      type: object
+      additionalProperties:
+        type: string
+        description: The value of the arguments identified by the key
+      example: { "wrapPlanType": "2A" }

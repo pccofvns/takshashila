@@ -1,0 +1,17 @@
+UserResponse:
+  type: object
+  properties:
+    data:
+      $ref: '#/User'
+User:
+  type: object
+  properties:
+    username:
+      type: string
+      example: pccofvns
+      description: Username
+    password:
+      type: string
+      readOnly: true
+      example: pccofvns
+      description: Password
