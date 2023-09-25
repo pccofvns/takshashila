@@ -5,7 +5,7 @@ package com.pccofvns.ts.domain.tables;
 
 
 import com.pccofvns.ts.domain.Keys;
-import com.pccofvns.ts.domain.TsQa;
+import com.pccofvns.ts.domain.Ts;
 import com.pccofvns.ts.domain.tables.records.UserRoleXRecord;
 
 import java.util.Arrays;
@@ -38,7 +38,7 @@ public class UserRoleX extends TableImpl<UserRoleXRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>ts_qa.user_role_x</code>
+     * The reference instance of <code>ts.user_role_x</code>
      */
     public static final UserRoleX USER_ROLE_X = new UserRoleX();
 
@@ -51,12 +51,12 @@ public class UserRoleX extends TableImpl<UserRoleXRecord> {
     }
 
     /**
-     * The column <code>ts_qa.user_role_x.user_id</code>.
+     * The column <code>ts.user_role_x.user_id</code>.
      */
     public final TableField<UserRoleXRecord, Long> USER_ID = createField(DSL.name("user_id"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>ts_qa.user_role_x.role_id</code>.
+     * The column <code>ts.user_role_x.role_id</code>.
      */
     public final TableField<UserRoleXRecord, Long> ROLE_ID = createField(DSL.name("role_id"), SQLDataType.BIGINT.nullable(false), this, "");
 
@@ -69,21 +69,21 @@ public class UserRoleX extends TableImpl<UserRoleXRecord> {
     }
 
     /**
-     * Create an aliased <code>ts_qa.user_role_x</code> table reference
+     * Create an aliased <code>ts.user_role_x</code> table reference
      */
     public UserRoleX(String alias) {
         this(DSL.name(alias), USER_ROLE_X);
     }
 
     /**
-     * Create an aliased <code>ts_qa.user_role_x</code> table reference
+     * Create an aliased <code>ts.user_role_x</code> table reference
      */
     public UserRoleX(Name alias) {
         this(alias, USER_ROLE_X);
     }
 
     /**
-     * Create a <code>ts_qa.user_role_x</code> table reference
+     * Create a <code>ts.user_role_x</code> table reference
      */
     public UserRoleX() {
         this(DSL.name("user_role_x"), null);
@@ -95,7 +95,7 @@ public class UserRoleX extends TableImpl<UserRoleXRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : TsQa.TS_QA;
+        return aliased() ? null : Ts.TS;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class UserRoleX extends TableImpl<UserRoleXRecord> {
     private transient Role _role;
 
     /**
-     * Get the implicit join path to the <code>ts_qa.user</code> table.
+     * Get the implicit join path to the <code>ts.user</code> table.
      */
     public User user() {
         if (_user == null)
@@ -117,7 +117,7 @@ public class UserRoleX extends TableImpl<UserRoleXRecord> {
     }
 
     /**
-     * Get the implicit join path to the <code>ts_qa.role</code> table.
+     * Get the implicit join path to the <code>ts.role</code> table.
      */
     public Role role() {
         if (_role == null)

@@ -26,9 +26,9 @@ public class DefaultCatalog extends CatalogImpl {
     public static final DefaultCatalog DEFAULT_CATALOG = new DefaultCatalog();
 
     /**
-     * The schema <code>ts_qa</code>.
+     * The schema <code>ts</code>.
      */
-    public final TsQa TS_QA = TsQa.TS_QA;
+    public final Ts TS = Ts.TS;
 
     /**
      * No further instances allowed
@@ -40,7 +40,7 @@ public class DefaultCatalog extends CatalogImpl {
     @Override
     public final List<Schema> getSchemas() {
         return Arrays.asList(
-            TsQa.TS_QA
+            Ts.TS
         );
     }
 

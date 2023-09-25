@@ -5,7 +5,7 @@ package com.pccofvns.ts.domain.tables;
 
 
 import com.pccofvns.ts.domain.Keys;
-import com.pccofvns.ts.domain.TsQa;
+import com.pccofvns.ts.domain.Ts;
 import com.pccofvns.ts.domain.tables.records.RoleRecord;
 
 import java.util.function.Function;
@@ -38,7 +38,7 @@ public class Role extends TableImpl<RoleRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>ts_qa.role</code>
+     * The reference instance of <code>ts.role</code>
      */
     public static final Role ROLE = new Role();
 
@@ -51,12 +51,12 @@ public class Role extends TableImpl<RoleRecord> {
     }
 
     /**
-     * The column <code>ts_qa.role.id</code>.
+     * The column <code>ts.role.id</code>.
      */
     public final TableField<RoleRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>ts_qa.role.name</code>.
+     * The column <code>ts.role.name</code>.
      */
     public final TableField<RoleRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
@@ -69,21 +69,21 @@ public class Role extends TableImpl<RoleRecord> {
     }
 
     /**
-     * Create an aliased <code>ts_qa.role</code> table reference
+     * Create an aliased <code>ts.role</code> table reference
      */
     public Role(String alias) {
         this(DSL.name(alias), ROLE);
     }
 
     /**
-     * Create an aliased <code>ts_qa.role</code> table reference
+     * Create an aliased <code>ts.role</code> table reference
      */
     public Role(Name alias) {
         this(alias, ROLE);
     }
 
     /**
-     * Create a <code>ts_qa.role</code> table reference
+     * Create a <code>ts.role</code> table reference
      */
     public Role() {
         this(DSL.name("role"), null);
@@ -95,7 +95,7 @@ public class Role extends TableImpl<RoleRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : TsQa.TS_QA;
+        return aliased() ? null : Ts.TS;
     }
 
     @Override

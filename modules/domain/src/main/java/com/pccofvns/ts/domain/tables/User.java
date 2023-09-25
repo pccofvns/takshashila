@@ -5,7 +5,7 @@ package com.pccofvns.ts.domain.tables;
 
 
 import com.pccofvns.ts.domain.Keys;
-import com.pccofvns.ts.domain.TsQa;
+import com.pccofvns.ts.domain.Ts;
 import com.pccofvns.ts.domain.tables.records.UserRecord;
 
 import java.util.function.Function;
@@ -38,7 +38,7 @@ public class User extends TableImpl<UserRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>ts_qa.user</code>
+     * The reference instance of <code>ts.user</code>
      */
     public static final User USER = new User();
 
@@ -51,37 +51,37 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * The column <code>ts_qa.user.id</code>.
+     * The column <code>ts.user.id</code>.
      */
     public final TableField<UserRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>ts_qa.user.username</code>.
+     * The column <code>ts.user.username</code>.
      */
     public final TableField<UserRecord, String> USERNAME = createField(DSL.name("username"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
-     * The column <code>ts_qa.user.password</code>.
+     * The column <code>ts.user.password</code>.
      */
     public final TableField<UserRecord, String> PASSWORD = createField(DSL.name("password"), SQLDataType.VARCHAR(255).defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>ts_qa.user.credentials_non_expired</code>.
+     * The column <code>ts.user.credentials_non_expired</code>.
      */
     public final TableField<UserRecord, Boolean> CREDENTIALS_NON_EXPIRED = createField(DSL.name("credentials_non_expired"), SQLDataType.BIT.nullable(false), this, "");
 
     /**
-     * The column <code>ts_qa.user.non_expired</code>.
+     * The column <code>ts.user.non_expired</code>.
      */
     public final TableField<UserRecord, Boolean> NON_EXPIRED = createField(DSL.name("non_expired"), SQLDataType.BIT.nullable(false), this, "");
 
     /**
-     * The column <code>ts_qa.user.non_locked</code>.
+     * The column <code>ts.user.non_locked</code>.
      */
     public final TableField<UserRecord, Boolean> NON_LOCKED = createField(DSL.name("non_locked"), SQLDataType.BIT.nullable(false), this, "");
 
     /**
-     * The column <code>ts_qa.user.enabled</code>.
+     * The column <code>ts.user.enabled</code>.
      */
     public final TableField<UserRecord, Boolean> ENABLED = createField(DSL.name("enabled"), SQLDataType.BIT.nullable(false), this, "");
 
@@ -94,21 +94,21 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * Create an aliased <code>ts_qa.user</code> table reference
+     * Create an aliased <code>ts.user</code> table reference
      */
     public User(String alias) {
         this(DSL.name(alias), USER);
     }
 
     /**
-     * Create an aliased <code>ts_qa.user</code> table reference
+     * Create an aliased <code>ts.user</code> table reference
      */
     public User(Name alias) {
         this(alias, USER);
     }
 
     /**
-     * Create a <code>ts_qa.user</code> table reference
+     * Create a <code>ts.user</code> table reference
      */
     public User() {
         this(DSL.name("user"), null);
@@ -120,7 +120,7 @@ public class User extends TableImpl<UserRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : TsQa.TS_QA;
+        return aliased() ? null : Ts.TS;
     }
 
     @Override

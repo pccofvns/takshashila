@@ -5,7 +5,7 @@ package com.pccofvns.ts.domain.tables;
 
 
 import com.pccofvns.ts.domain.Keys;
-import com.pccofvns.ts.domain.TsQa;
+import com.pccofvns.ts.domain.Ts;
 import com.pccofvns.ts.domain.tables.records.PermissionRecord;
 
 import java.util.function.Function;
@@ -38,7 +38,7 @@ public class Permission extends TableImpl<PermissionRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>ts_qa.permission</code>
+     * The reference instance of <code>ts.permission</code>
      */
     public static final Permission PERMISSION = new Permission();
 
@@ -51,12 +51,12 @@ public class Permission extends TableImpl<PermissionRecord> {
     }
 
     /**
-     * The column <code>ts_qa.permission.id</code>.
+     * The column <code>ts.permission.id</code>.
      */
     public final TableField<PermissionRecord, Long> ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>ts_qa.permission.name</code>.
+     * The column <code>ts.permission.name</code>.
      */
     public final TableField<PermissionRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
@@ -69,21 +69,21 @@ public class Permission extends TableImpl<PermissionRecord> {
     }
 
     /**
-     * Create an aliased <code>ts_qa.permission</code> table reference
+     * Create an aliased <code>ts.permission</code> table reference
      */
     public Permission(String alias) {
         this(DSL.name(alias), PERMISSION);
     }
 
     /**
-     * Create an aliased <code>ts_qa.permission</code> table reference
+     * Create an aliased <code>ts.permission</code> table reference
      */
     public Permission(Name alias) {
         this(alias, PERMISSION);
     }
 
     /**
-     * Create a <code>ts_qa.permission</code> table reference
+     * Create a <code>ts.permission</code> table reference
      */
     public Permission() {
         this(DSL.name("permission"), null);
@@ -95,7 +95,7 @@ public class Permission extends TableImpl<PermissionRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : TsQa.TS_QA;
+        return aliased() ? null : Ts.TS;
     }
 
     @Override
