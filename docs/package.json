@@ -1,13 +1,7 @@
 {
   "name": "takshashila",
-  "version": "0.0.1-SNAPSHOT",
   "dependencies": {
-    "@redocly/cli": "1.2.0"
+    "@redocly/cli": "latest"
   },
-  "private": true,
-  "scripts": {
-    "start": "redocly preview-docs",
-    "build": "redocly bundle -o dist",
-    "test": "redocly lint"
-  }
+  "private": true
 }
