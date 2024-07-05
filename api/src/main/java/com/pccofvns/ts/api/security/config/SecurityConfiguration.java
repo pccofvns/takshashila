@@ -39,7 +39,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class SecurityConfiguration {
 
-    private static final RequestMatcher PUBLIC_URLS = new OrRequestMatcher(new AntPathRequestMatcher("/v1/public/**"), new AntPathRequestMatcher("/docs/**"), new AntPathRequestMatcher("/graphiql/**"), new AntPathRequestMatcher("/graphql/**"));
+    private static final RequestMatcher PUBLIC_URLS = new OrRequestMatcher(new AntPathRequestMatcher("/v1/public/**"), new AntPathRequestMatcher("/docs/**"));
     private static final RequestMatcher PROTECTED_URLS = new NegatedRequestMatcher(PUBLIC_URLS);
 
     @Bean

@@ -49,9 +49,6 @@ spring:
   sql:
     init:
       platform: mariadb
-  graphql:
-    graphiql:
-      enabled: true
 jwt:
   issuer: takshashila
   expiration-sec: 86400
