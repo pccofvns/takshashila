@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: pccofvns/scripts
-          ref: master
+          ref: main
           token: ${{ secrets.GIT_CREDENTIALS }}
       - name: Setup Python
         uses: actions/setup-python@v5
