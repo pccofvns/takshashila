@@ -1,12 +1,14 @@
-= Takshashila
+## Takshashila
 
-== Spring Boot Run:
+### Spring Boot Run:
 
-`mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"`
+```sh
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"`
+```
 
+**DB Setup**
 
-.MySQL/MariaDB
-----
+```
 docker run --detach --name takshashila_db -p3306:3306 --env MARIADB_ROOT_PASSWORD=mariadb --env MARIADB_USER=takshashila --env MARIADB_PASSWORD=takshashila mariadb:latest
 docker exec -it takshashila_db mariadb --user root -pmariadb
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -39,15 +41,15 @@ MariaDB [ts_prod]> show tables;
 Empty set (0.001 sec)
 
 MariaDB [ts_prod]>
-----
+```
 
 The -d option means "without data".
 
 `mysqldump -d -upccofvns -ppccofvns -hlocalhost takshashila`
 
-== References:
+### References:
 
-* https://octoperf.com/blog/2018/03/08/securing-rest-api-spring-security/#user-auth-token[Securing a Rest API with Spring Security and JWT]
-* https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter[Depreceating WebSecurityConfigurerAdapter]
-* https://github.com/jwtk/jjwt[JWT]
-* https://www.bezkoder.com/spring-boot-security-jwt/[Spring Boot Security JWT]
+* [Securing a Rest API with Spring Security and JWT](https://octoperf.com/blog/2018/03/08/securing-rest-api-spring-security/#user-auth-token)
+* [Deprecating WebSecurityConfigurerAdapter](https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)
+* [JWT](https://github.com/jwtk/jjwt)
+* [Spring Boot Security JWT](https://www.bezkoder.com/spring-boot-security-jwt)
