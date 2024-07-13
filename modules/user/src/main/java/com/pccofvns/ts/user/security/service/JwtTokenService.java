@@ -1,19 +1,24 @@
 package com.pccofvns.ts.user.security.service;
 
-import com.pccofvns.ts.user.security.*;
-import io.jsonwebtoken.*;
+import com.pccofvns.ts.user.security.TokenService;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.JwtParser;
+import io.jsonwebtoken.Jwts;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import java.time.*;
-import java.util.*;
-import java.util.function.*;
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 
-import static com.pccofvns.ts.utils.DateUtils.*;
-import static com.pccofvns.ts.utils.StringUtils.*;
-import static io.jsonwebtoken.SignatureAlgorithm.*;
-import static lombok.AccessLevel.*;
+import static com.pccofvns.ts.utils.DateUtils.toDate;
+import static com.pccofvns.ts.utils.StringUtils.substringBeforeLast;
+import static io.jsonwebtoken.SignatureAlgorithm.HS256;
+import static lombok.AccessLevel.PRIVATE;
 
 @FieldDefaults(level = PRIVATE)
 @Service
@@ -44,10 +49,10 @@ public class JwtTokenService implements TokenService {
     private String newToken(final Map<String, Object> attributes, final int expiresInSec) {
         final LocalDateTime now = LocalDateTime.now();
         return  Jwts.builder()
-                .setIssuer(issuer)
-                .addClaims(Map.of("username", String.valueOf(attributes.get("username"))))
-                .setIssuedAt(toDate(now))
-                .setExpiration(toDate(now.plusSeconds(expiresInSec)))
+                .issuer(issuer)
+                .claims(Map.of("username", String.valueOf(attributes.get("username"))))
+                .issuedAt(toDate(now))
+                .expiration(toDate(now.plusSeconds(expiresInSec)))
                 .signWith(HS256, secretKey)
                 .compact();
     }
@@ -57,22 +62,23 @@ public class JwtTokenService implements TokenService {
         final JwtParser parser = Jwts
                 .parser()
                 .requireIssuer(issuer)
-                .setAllowedClockSkewSeconds(clockSkewSec);
+                .clockSkewSeconds(clockSkewSec)
+                .build();
 
         // See: https://github.com/jwtk/jjwt/issues/135
         final String withoutSignature = substringBeforeLast(token, DOT) + DOT;
-        return parseClaims(() -> parser.parseClaimsJwt(withoutSignature).getBody());
+        return parseClaims(() -> parser.parseClaimsJwt(withoutSignature).getPayload());
     }
 
     @Override
     public Map<String, String> verify(String token) {
         final JwtParser parser = Jwts
-                .parserBuilder()
+                .parser()
                 .requireIssuer(issuer)
-                .setAllowedClockSkewSeconds(clockSkewSec)
+                .clockSkewSeconds(clockSkewSec)
                 .setSigningKey(secretKey)
                 .build();
-        return parseClaims(() -> parser.parseClaimsJws(token).getBody());
+        return parseClaims(() -> parser.parseClaimsJws(token).getPayload());
     }
 
     private static Map<String, String> parseClaims(final Supplier<Claims> toClaims) {
